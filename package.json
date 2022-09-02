@@ -1,11 +1,21 @@
 {
-    "name": "@lah/rateme",
-    "version": "0.0.1",
+    "name": "rateme",
+    "version": "0.0.2",
     "description": "RateMe is a simple star rating component written in TypeScript.",
-    "main": "dist/cjs/index.js",
-    "type": "commonjs",
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "./dist/cjm/index.js",
     "module": "./dist/es/index.js",
-    "types": "dist/index.d.ts",
+    "type": "commonjs",
+    "types": "types/index.d.ts",
+    "exports": {
+        "require": "./dist/cjm/index.js",
+        "import": "./dist/es/index.js"
+    },
+    "engines": {
+        "node": ">= 8.10.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LaH-DeV/rateme.git"
@@ -17,23 +27,16 @@
     "scripts": {
         "runBat": "libFix.bat",
         "compileScripts": "npx webpack --config webpack.config.js",
-        "compileStyles": "sass --style=compressed src/index.rateme.scss:/dist/styles/index.rateme.min.css && npm run runBat",
-        "build": "npm run compileScripts && npm run compileStyles",
-        "test": "jest --config jestconfig.json",
-        "lint": "tslint -p tsconfig.json",
-        "format": "prettier --write \"src/**/*.ts\"",
-        "prepare": "npm run build",
-        "prepublishOnly": "npm test && npm run lint",
-        "preversion": "npm run lint",
-        "version": "npm run format && git add -A src",
-        "postversion": "git push && git push --tags"
+        "compileStyles": "sass --style=compressed src/index.rateme.scss:/dist/styles/index.rateme.min.css",
+        "build": "npm run compileScripts && npm run compileStyles && npm run runBat"
     },
     "author": "Przemysław Dylewski <lahpolon.dev@gmail.com>",
-    "license": "ISC",
+    "license": "MIT",
     "files": [
-        "dist",
-        "types",
-        "README.md"
+        "dist/*",
+        "types/index.d.ts",
+        "README.md",
+        "license"
     ],
     "devDependencies": {
         "webpack": "^5.74.0",
