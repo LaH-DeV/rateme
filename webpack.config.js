@@ -75,8 +75,8 @@ const esmConfig = {
     output: {
         module: true,
         filename: "[name].js",
-        path: path.resolve(__dirname, "dist", "es")
+        path: path.resolve(__dirname, "dist")
     },
 };
 
-module.exports = [esmConfig, cjmConfig];
+module.exports = [esmConfig];

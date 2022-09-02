@@ -1,1 +1,1 @@
-echo {"type":"module"} > .\dist\es\package.json
+echo {"type":"module"} > .\dist\package.json

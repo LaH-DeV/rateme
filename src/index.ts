@@ -1,4 +1,4 @@
-interface RateMeConfig {
+export interface RateMeConfig {
     maxValue: number;
     iconSpacing: number;
     iconSize: number;
