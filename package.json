@@ -1,13 +1,17 @@
 {
     "name": "rateme",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "RateMe is a simple star rating component written in TypeScript.",
     "publishConfig": {
         "access": "public"
     },
-    "main": "./dist/index.js",
+    "main": "./dist/es/index.js",
     "type": "module",
-    "types": "./dist/index.d.ts",
+    "exports": {
+        "require": "./dist/cjm/index.js",
+        "import": "./dist/es/index.js"
+    },
+    "types": "./types/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LaH-DeV/rateme.git"
@@ -24,9 +28,10 @@
     "author": "Przemysław Dylewski <lahpolon.dev@gmail.com>",
     "license": "MIT",
     "files": [
-        "dist",
+        "dist/*",
+        "types/*",
         "README.md",
-        "license"
+        "LICENSE"
     ],
     "devDependencies": {
         "webpack": "^5.74.0",

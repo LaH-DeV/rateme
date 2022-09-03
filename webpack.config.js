@@ -1,6 +1,11 @@
-const path = require("path");
-const TerserPlugin = require("terser-webpack-plugin");
-const webpack = require("webpack");
+import path from "path";
+import { fileURLToPath } from 'url';
+import TerserPlugin from "terser-webpack-plugin";
+import webpack from "webpack";
+
+const SourceMapDevToolPlugin = webpack.SourceMapDevToolPlugin;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const getCommonConfig = () => {
     return {
@@ -35,7 +40,7 @@ const cjmConfig = {
             },
         },
     },
-    plugins: [new webpack.SourceMapDevToolPlugin({
+    plugins: [new SourceMapDevToolPlugin({
         filename: 'sourcemaps/[file].map',
         append: false
     })],
@@ -68,15 +73,15 @@ const esmConfig = {
     experiments: {
         outputModule: true,
     },
-    plugins: [new webpack.SourceMapDevToolPlugin({
+    plugins: [new SourceMapDevToolPlugin({
         filename: 'sourcemaps/[file].map',
         append: false
     })],
     output: {
         module: true,
         filename: "[name].js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist", "es")
     },
 };
 
-module.exports = [esmConfig];
+export default [esmConfig, cjmConfig];

@@ -133,7 +133,7 @@ export default class RateMe implements RateMeConfig {
     public clearRating(id: string, required?: boolean): void {
         const form = document.querySelector(`.${this.classes.base.element}.${this.classes.base.form}#${id}`);
         if(!form) throw new TypeError("class RateMe: [id: string] for 'clearRating' should be valid rateme-form id.");
-        const elements = [...form.querySelectorAll(`.${this.classes.base.icon}`)];
+        const elements = Array.from(form.querySelectorAll(`.${this.classes.base.icon}`));
         if(elements && elements.length > 0) {
             elements.forEach(element => {
                 let classList = this.classes.base.icon;

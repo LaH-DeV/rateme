@@ -4,9 +4,7 @@
         "module": "ES6",
         "sourceMap": true,
         "declaration": true,
-        "lib": ["ES6", "DOM", "DOM.Iterable", "ES2017"],
-        "outDir": "./dist/",
-        "moduleResolution": "node",
+        "declarationDir": "types",
         "allowSyntheticDefaultImports" : true,
         "strictFunctionTypes": false,
         "esModuleInterop" : true,
@@ -14,5 +12,5 @@
         "strict": true
     },
     "include": ["src"],
-    "exclude": ["node_modules", "**/tests/*", "**/test-data/*"]
+    "exclude": ["node_modules", "**/tests/*"]
 }
